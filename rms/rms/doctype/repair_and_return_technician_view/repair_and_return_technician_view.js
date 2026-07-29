@@ -642,7 +642,7 @@
 //                         if ((row.repair_status === "Repaired & Ready for Quality check" || row.repair_status === "Scrap") &&
 //                             row.component_used &&
 //                             !row.material_issue) {
-                    
+
 //                             let parsed_items = parse_component_string(row.component_used);
 //                             let item_docs = await get_item_docs_by_codes(parsed_items.map(i => i.item_code));
 
@@ -1642,7 +1642,7 @@ function safe_add_tracking_history(doc, status_type, remarks_text, rma_status_va
     let is_duplicate = doc.rma_tracking_status.some(entry =>
 
         (entry.status || "").trim() === status_type &&
-        (entry.rma_status || "").trim() === (rma_status_val || "").trim() &&        
+        (entry.rma_status || "").trim() === (rma_status_val || "").trim() &&
         (entry.remarks || "").trim() === remarks_text.trim()
 
     );
@@ -2156,10 +2156,10 @@ frappe.ui.form.on('Repair and Return Technician View', {
 
                         // Stock validation for each requested component before allowing finished status
                         if ((row.repair_status === "Repaired & Ready for Quality check" || row.repair_status === "Scrap") &&
-                            row.component_used &&
+                            row.used_components &&
                             !row.material_issue) {
-                    
-                            let parsed_items = parse_component_string(row.component_used);
+
+                            let parsed_items = parse_component_string(row.used_components);
                             let item_docs = await get_item_docs_by_codes(parsed_items.map(i => i.item_code));
 
                             for (let item of parsed_items) {
@@ -2176,6 +2176,28 @@ frappe.ui.form.on('Repair and Return Technician View', {
                                 });
                             }
                         }
+
+                        // if ((row.repair_status === "Repaired & Ready for Quality check" || row.repair_status === "Scrap") &&
+                        //     row.component_used &&
+                        //     !row.material_issue) {
+
+                        //     let parsed_items = parse_component_string(row.component_used);
+                        //     let item_docs = await get_item_docs_by_codes(parsed_items.map(i => i.item_code));
+
+                        //     for (let item of parsed_items) {
+                        //         let resolved_doc = item_docs.find(doc => doc.name === item.item_code || doc.item_name === item.item_code);
+                        //         let resolved_code = resolved_doc ? resolved_doc.name : item.item_code;
+
+                        //         await frappe.call({
+                        //             method: "rms.rms.doctype.repair_and_return_technician_view.repair_and_return_technician_view.validate_component_stock",
+                        //             args: {
+                        //                 item_code: resolved_code,
+                        //                 warehouse: "Repair Floor - DTPL",
+                        //                 qty: item.qty
+                        //             }
+                        //         });
+                        //     }
+                        // }
 
                         if (docChanged) {
                             frm.rma_docs_to_save.push({
@@ -2319,7 +2341,7 @@ frappe.ui.form.on('Repair and Return Technician View', {
 
                 let r = await frappe.call({
                     method: "rms.rms.doctype.repair_and_return_technician_view.repair_and_return_technician_view.create_material_issue",
-                    args: { 
+                    args: {
                         stock_entry_data: stock_entry,
                         child_doctype: row.doctype,
                         child_name: row.name,
@@ -2961,16 +2983,16 @@ frappe.ui.form.on("Repair and Return Tech View Table", {
                         let parsed = parsed_items.find(x => x.item_code === item.name || x.item_code === item.item_name);
                         let q = parsed ? parsed.qty : 1;
                         let child = se_frm.add_child('items');
-                        child.item_code = item.item_code; 
+                        child.item_code = item.item_code;
                         child.item_name = item.item_name || item.item_code;
                         child.description = item.description || item.item_name || item.item_code;
-                        child.uom = item.stock_uom || 'Nos'; 
+                        child.uom = item.stock_uom || 'Nos';
                         child.stock_uom = item.stock_uom || 'Nos';
-                        child.s_warehouse = res_data?.message?.warehouse || 'Ductus Technologies Pvt Ltd - DTPL'; 
+                        child.s_warehouse = res_data?.message?.warehouse || 'Ductus Technologies Pvt Ltd - DTPL';
                         child.t_warehouse = 'Repair Floor - DTPL';
-                        child.conversion_factor = 1; 
-                        child.qty = q; 
-                        child.transfer_qty = q; 
+                        child.conversion_factor = 1;
+                        child.qty = q;
+                        child.transfer_qty = q;
                         child.basic_rate = item.valuation_rate || 0;
                     });
                     se_frm.refresh_field('items');
