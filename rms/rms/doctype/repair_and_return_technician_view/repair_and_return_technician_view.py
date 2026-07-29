@@ -318,8 +318,8 @@ def create_material_issue(stock_entry_data, child_doctype=None, child_name=None,
         stock_entry.submit()
 
         # Update database fields directly to bypass ORM validation type-casting issues
-        if rma_id:
-            frappe.db.set_value("RMA BIN", rma_id, "material_issue", stock_entry.name)
+        # if rma_id:
+        #     frappe.db.set_value("RMA BIN", rma_id, "material_issue", stock_entry.name)
             
         if child_doctype and child_name:
             frappe.db.set_value(child_doctype, child_name, "material_issue", stock_entry.name)
