@@ -1,0 +1,220 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{customer}-{##}",
+ "creation": "2025-01-07 16:16:19.250701",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_lo9l",
+  "customer",
+  "workflow_state",
+  "material_receipt_created",
+  "date",
+  "column_break_mtbv",
+  "location",
+  "delivery_challan_no",
+  "warehouse",
+  "lr_no",
+  "section_break_3sqq",
+  "rma_features",
+  "quantity",
+  "generate_unique_id",
+  "guic",
+  "customer_prefix",
+  "last_serial_number",
+  "last_batch_number",
+  "batch_generated",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_lo9l",
+   "fieldtype": "Section Break",
+   "label": "RMA"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Circle",
+   "options": "Location"
+  },
+  {
+   "fieldname": "section_break_3sqq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "label": "Quantity",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.guic==0;",
+   "fieldname": "generate_unique_id",
+   "fieldtype": "Button",
+   "label": "Generate RMA ID"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "RMA",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer_prefix",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Customer Prefix"
+  },
+  {
+   "fieldname": "last_serial_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Last Serial Number"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "rma_features",
+   "fieldtype": "Table",
+   "label": "RMA Features",
+   "options": "RMA Features"
+  },
+  {
+   "fieldname": "last_batch_number",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Last Batch Number"
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Workflow State",
+   "options": "Workflow State"
+  },
+  {
+   "default": "0",
+   "fieldname": "batch_generated",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Batch Generated"
+  },
+  {
+   "default": "0",
+   "fieldname": "guic",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Generate Unique Id Check"
+  },
+  {
+   "fieldname": "column_break_mtbv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "delivery_challan_no",
+   "fieldtype": "Data",
+   "label": "Delivery Challan No."
+  },
+  {
+   "default": "Ductus Technologies Pvt Ltd - DTPL",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "material_receipt_created",
+   "fieldtype": "Link",
+   "label": "Material Receipt",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lr_no",
+   "fieldtype": "Data",
+   "label": "L.R. No."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Stock Entry",
+   "link_doctype": "Stock Entry",
+   "link_fieldname": "connection"
+  }
+ ],
+ "modified": "2026-07-08 18:57:26.414709",
+ "modified_by": "Administrator",
+ "module": "RMS",
+ "name": "RMA",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RMS",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

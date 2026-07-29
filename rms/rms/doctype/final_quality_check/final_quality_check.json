@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:FQC-{####}",
+ "creation": "2025-04-28 16:10:16.091860",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "workflow_state",
+  "customer",
+  "column_break_drdw",
+  "batch_no",
+  "item",
+  "section_break_hpar",
+  "isbulk",
+  "fqc_bulk",
+  "fqc_item",
+  "delivery_quantity",
+  "bulk_quantity"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_drdw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch No",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "section_break_hpar",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "isbulk",
+   "fieldtype": "Check",
+   "label": "isBulk"
+  },
+  {
+   "depends_on": "eval:doc.isbulk==1;",
+   "fieldname": "fqc_bulk",
+   "fieldtype": "Table",
+   "label": "FQC bulk",
+   "options": "FQC bulk"
+  },
+  {
+   "depends_on": "eval:doc.isbulk==0;",
+   "fieldname": "fqc_item",
+   "fieldtype": "Table",
+   "label": "FQC Item",
+   "options": "FQC Item"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Workflow State",
+   "options": "Workflow State"
+  },
+  {
+   "fieldname": "delivery_quantity",
+   "fieldtype": "Int",
+   "label": "Delivery Quantity"
+  },
+  {
+   "fieldname": "bulk_quantity",
+   "fieldtype": "Int",
+   "label": "Bulk Quantity"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-24 12:06:32.853941",
+ "modified_by": "Administrator",
+ "module": "RMS",
+ "name": "Final Quality Check",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RMS",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

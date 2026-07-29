@@ -1,0 +1,236 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-06 13:01:29.358452",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rma_id",
+  "customer",
+  "model_no",
+  "serial_no",
+  "assigned_date",
+  "assigned_to",
+  "lot_no",
+  "part_no",
+  "repair_status",
+  "assigned_to_name",
+  "repaired_date",
+  "select_components",
+  "component_used",
+  "create_material_receipt",
+  "select_items",
+  "used_components",
+  "items",
+  "fault_found",
+  "repair_remarks",
+  "view_remarks",
+  "material_receipt",
+  "material_issue",
+  "employee_name",
+  "receiving_date",
+  "component"
+ ],
+ "fields": [
+  {
+   "columns": 4,
+   "fieldname": "lot_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lot No.",
+   "options": "RMA",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rma_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "RMA ID",
+   "read_only": 1
+  },
+  {
+   "columns": 5,
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned To",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "columns": 4,
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "model_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Model No.",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "columns": 3,
+   "fieldname": "part_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Part No",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Serial No",
+   "read_only": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "assigned_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Assign Date ",
+   "read_only": 1
+  },
+  {
+   "columns": 4,
+   "fieldname": "select_components",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Select Components"
+  },
+  {
+   "columns": 4,
+   "fieldname": "component_used",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Component Requested"
+  },
+  {
+   "columns": 4,
+   "fieldname": "create_material_receipt",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Create Material Request"
+  },
+  {
+   "fieldname": "fault_found",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fault Found ",
+   "options": "Fault Found"
+  },
+  {
+   "columns": 3,
+   "fieldname": "repair_remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  },
+  {
+   "columns": 3,
+   "fieldname": "material_receipt",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Material Request",
+   "options": "Stock Entry"
+  },
+  {
+   "columns": 7,
+   "fieldname": "repair_status",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Repair Status",
+   "options": "Repair Status"
+  },
+  {
+   "columns": 7,
+   "fieldname": "assigned_to_name",
+   "fieldtype": "Data",
+   "label": "Assigned To Name"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "repaired_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Status Update Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "receiving_date",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Receiving Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "component",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Component",
+   "options": "Item"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Component Used"
+  },
+  {
+   "columns": 3,
+   "fieldname": "select_items",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Select Used Component "
+  },
+  {
+   "fieldname": "view_remarks",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "View Remarks"
+  },
+  {
+   "fieldname": "material_issue",
+   "fieldtype": "Link",
+   "label": "Material Issue",
+   "options": "Stock Entry"
+  },
+  {
+   "columns": 4,
+   "fieldname": "used_components",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Used Components"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-21 15:37:19.581389",
+ "modified_by": "devteam@anantdv.com",
+ "module": "RMS",
+ "name": "Repair and Return Tech View Table",
+ "owner": "shresthangsu.c@anantdv.com",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

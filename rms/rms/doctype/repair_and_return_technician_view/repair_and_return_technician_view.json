@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-07-25 18:40:18.896011",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "data_filters_section",
+  "technician",
+  "customer",
+  "warranty_status",
+  "repair_status",
+  "column_break_8fkd",
+  "lot_no",
+  "circle",
+  "rma_id",
+  "section_break_cmu9",
+  "repair_and_return"
+ ],
+ "fields": [
+  {
+   "fieldname": "technician",
+   "fieldtype": "Data",
+   "label": "Technician ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "warranty_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": " Warranty Status",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_8fkd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lot_no",
+   "fieldtype": "Link",
+   "label": "Lot No.",
+   "options": "RMA"
+  },
+  {
+   "fieldname": "circle",
+   "fieldtype": "Link",
+   "label": "Circle",
+   "options": "Location"
+  },
+  {
+   "fieldname": "section_break_cmu9",
+   "fieldtype": "Section Break",
+   "label": "RMA ID's"
+  },
+  {
+   "fieldname": "repair_and_return",
+   "fieldtype": "Table",
+   "label": "Repair and return table",
+   "options": "Repair and Return Tech View Table"
+  },
+  {
+   "fieldname": "data_filters_section",
+   "fieldtype": "Section Break",
+   "label": "Data Filters"
+  },
+  {
+   "fieldname": "repair_status",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Repair Status",
+   "options": "Repair Status"
+  },
+  {
+   "fieldname": "rma_id",
+   "fieldtype": "Link",
+   "label": "RMA ID",
+   "options": "RMA BIN"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-07-02 13:18:49.644160",
+ "modified_by": "Administrator",
+ "module": "RMS",
+ "name": "Repair and Return Technician View",
+ "owner": "pankaj.k@anantdv.com",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

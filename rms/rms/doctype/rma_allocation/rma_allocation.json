@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "RA.####",
+ "creation": "2025-01-10 12:12:35.873587",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rma_allocated_list_section",
+  "customer",
+  "column_break_n1a6",
+  "batch_no",
+  "item",
+  "section_break_mpct",
+  "isbulk",
+  "total_acquired_quantity",
+  "allocated_quantity",
+  "unallocated_quantity",
+  "bulk_rma_allocation",
+  "rma_allocated_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "rma_allocated_list_section",
+   "fieldtype": "Section Break",
+   "label": "RMA Allocated List"
+  },
+  {
+   "fieldname": "rma_allocated_list",
+   "fieldtype": "Table",
+   "label": "RMA Allocated List",
+   "options": "RMA Assignment"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "default": "0",
+   "fieldname": "isbulk",
+   "fieldtype": "Check",
+   "label": "IsBulk"
+  },
+  {
+   "depends_on": "isbulk",
+   "fieldname": "total_acquired_quantity",
+   "fieldtype": "Int",
+   "label": "Total Acquired Quantity"
+  },
+  {
+   "depends_on": "isbulk",
+   "fieldname": "allocated_quantity",
+   "fieldtype": "Int",
+   "label": "Allocated Quantity"
+  },
+  {
+   "depends_on": "isbulk",
+   "fieldname": "unallocated_quantity",
+   "fieldtype": "Int",
+   "label": "Unallocated Quantity"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch No",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "section_break_mpct",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_n1a6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "isbulk",
+   "fieldname": "bulk_rma_allocation",
+   "fieldtype": "Table",
+   "label": "Bulk RMA Allocation",
+   "options": "Bulk RMA Allocation List"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-24 12:18:47.191010",
+ "modified_by": "Administrator",
+ "module": "RMS",
+ "name": "RMA Allocation",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RMS",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
