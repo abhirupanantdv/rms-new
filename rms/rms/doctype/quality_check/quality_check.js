@@ -114,7 +114,7 @@ async function load_quality_check_data(frm) {
             warranty_status: frm.doc.warranty_status || '',
             circle: frm.doc.circle || '',
             rma_id: frm.doc.rma_id || '',
-            repair_status: frm.doc.repair_status || 'Repaired & Ready for Quality check'
+            repair_status: 'Repaired & Ready for Quality check'
         },
         callback: async function (r) {
             console.log("RMA Data Response:", r);
